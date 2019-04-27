@@ -64,16 +64,6 @@ public class DataConsumer extends ShutdownableThread {
         Gson gson = builder.create();
         Event event = gson.fromJson(message, Event.class);
 
-        this.eventAggregator.AddEvent(event);
+        this.eventAggregator.addEvent(event);
     }
-
-//    @Override
-//    public String name() {
-//        return null;
-//    }
-//
-//    @Override
-//    public boolean isInterruptible() {
-//        return false;
-//    }
 }

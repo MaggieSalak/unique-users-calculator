@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36a59c9b-cd96-4cb6-9f49-e9c698a860bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/salak/maggie/EventAggregator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/doodle-data-challenge/com/salak/maggie/DataConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/doodle-data-challenge/com/salak/maggie/DataConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/doodle-data-challenge/com/salak/maggie/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/doodle-data-challenge/com/salak/maggie/Event.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/salak/maggie/DataConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/salak/maggie/DataConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/salak/maggie/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/salak/maggie/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/salak/maggie/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/salak/maggie/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/salak/maggie/EventAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/salak/maggie/EventAggregator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/" />
@@ -28,17 +24,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+            <state relative-caret-position="30">
+              <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/DataConsumer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="77" column="7" lean-forward="true" selection-start-line="69" selection-start-column="6" selection-end-line="77" selection-end-column="7" />
+            <state relative-caret-position="341">
+              <caret line="66" column="31" lean-forward="true" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,15 +42,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/EventAggregator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="44" column="74" lean-forward="true" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
+            <state relative-caret-position="364">
+              <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#396#543#0" expanded="true" />
-                <element signature="e#542#543#0" expanded="true" />
+                <element signature="e#474#630#0" expanded="true" />
+                <element signature="e#629#630#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,17 +59,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state relative-caret-position="270">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#158#159#0" expanded="true" />
                 <element signature="e#183#184#0" expanded="true" />
                 <element signature="e#213#214#0" expanded="true" />
                 <element signature="e#239#240#0" expanded="true" />
-                <element signature="e#275#276#0" expanded="true" />
-                <element signature="e#303#304#0" expanded="true" />
-                <element signature="e#341#342#0" expanded="true" />
-                <element signature="e#371#372#0" expanded="true" />
                 <element signature="e#403#404#0" expanded="true" />
                 <element signature="e#451#452#0" expanded="true" />
               </folding>
@@ -103,10 +95,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/salak/maggie/Event.java" />
-        <option value="$PROJECT_DIR$/src/com/salak/maggie/EventAggregator.java" />
         <option value="$PROJECT_DIR$/src/com/salak/maggie/Main.java" />
         <option value="$PROJECT_DIR$/src/com/salak/maggie/DataConsumer.java" />
+        <option value="$PROJECT_DIR$/src/com/salak/maggie/Event.java" />
+        <option value="$PROJECT_DIR$/src/com/salak/maggie/EventAggregator.java" />
       </list>
     </option>
   </component>
@@ -207,12 +199,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556355446021</updated>
-      <workItem from="1556355449089" duration="8083000" />
+      <workItem from="1556355449089" duration="9163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8083000" />
+    <option name="totallyTimeSpent" value="9163000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="140" y="23" width="1400" height="970" extended-state="0" />
@@ -233,7 +225,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.50569475" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22437358" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -260,25 +252,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#213#214#0" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#341#342#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -293,31 +266,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/EventAggregator.java">
+    <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="44" column="74" lean-forward="true" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#396#543#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#183#184#0" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/DataConsumer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="77" column="7" lean-forward="true" selection-start-line="69" selection-start-column="6" selection-end-line="77" selection-end-column="7" />
+        <state relative-caret-position="341">
+          <caret line="66" column="31" lean-forward="true" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/salak/maggie/EventAggregator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#474#630#0" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
           </folding>
         </state>
       </provider>
