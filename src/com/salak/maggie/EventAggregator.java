@@ -9,11 +9,13 @@ import java.util.*;
  */
 public class EventAggregator {
 
-    private class LastUpdatedSet {
+    // LastUpdatedUidSet represents a set of user ids
+    // and a timestamp when the set was last updated
+    private class LastUpdatedUidSet {
         Set<String> uids;
         long lastUpdatedMillis;
 
-        LastUpdatedSet(String uid) {
+        LastUpdatedUidSet(String uid) {
             uids = new HashSet<>(Arrays.asList(uid));
             lastUpdatedMillis = System.currentTimeMillis();
         }
@@ -25,7 +27,7 @@ public class EventAggregator {
     }
 
     // Unique users (represented as uids) per minute (represented in milliseconds)
-    private final Map<Long, LastUpdatedSet> events = new HashMap<>();
+    private final Map<Long, LastUpdatedUidSet> events = new HashMap<>();
 
     private static final long MAX_EVENT_AGE_MILLIS = 5000L;
     private static final long EVENT_PRINT_FREQUENCY_MILLIS = 1000L;
@@ -47,11 +49,11 @@ public class EventAggregator {
         long time = getTimeWithRoundedSeconds(event.getTs());
         synchronized (events) {
             if (events.containsKey(time)) {
-                LastUpdatedSet eventsSet = events.get(time);
+                LastUpdatedUidSet eventsSet = events.get(time);
                 eventsSet.addUid(event.getUid());
                 events.put(time, eventsSet);
             } else {
-                LastUpdatedSet eventsSet = new LastUpdatedSet(event.getUid());
+                LastUpdatedUidSet eventsSet = new LastUpdatedUidSet(event.getUid());
                 events.put(time, eventsSet);
             }
         }
@@ -68,12 +70,12 @@ public class EventAggregator {
             Iterator<Long> iterator = events.keySet().iterator();
             while (iterator.hasNext()) {
                 long timestamp = iterator.next();
-                LastUpdatedSet eventsSet = events.get(timestamp);
+                LastUpdatedUidSet eventsSet = events.get(timestamp);
                 long lastUpdatedTime = eventsSet.lastUpdatedMillis;
 
                 if (currentTimeMillis - lastUpdatedTime > MAX_EVENT_AGE_MILLIS) {
+                    String time = timestampToDate(timestamp);
                     int eventCount = eventsSet.uids.size();
-                    String time = DateFormat.getDateTimeInstance().format(new Date(timestamp));
                     System.out.println(time + ": " + eventCount + " unique users");
                     iterator.remove();
                 }
@@ -89,5 +91,9 @@ public class EventAggregator {
         // set seconds to 0 as all events within the same minute should belong to the same time slot
         calendar.set(Calendar.SECOND, 0);
         return calendar.getTimeInMillis();
+    }
+
+    private static String timestampToDate(long timestamp) {
+        return DateFormat.getDateTimeInstance().format(new Date(timestamp));
     }
 }

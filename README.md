@@ -3,7 +3,7 @@
 ## Setup
 The solution is provided as a desktop Java application.
 The source code can be found in `src/com.salak.maggie/` directory. 
-To run the application, simply run the `main()` method in `src/com.salak.maggie/Main.java`. 
+To run the application, simply run the `main()` method in `src/com.salak.maggie/Main.java`. Results (unique user count per minute) are printed to stdout.
 All configuration needed for the Kafka consumer is already set up in the `DataConsumer.java` class. The topic name is configured in `Main.java` and is set to `data-challenge-topic`.
 All libraries needed to run the application are in the `libs/` directory.
 
