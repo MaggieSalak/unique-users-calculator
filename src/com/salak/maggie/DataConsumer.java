@@ -11,6 +11,9 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import java.util.Collections;
 import java.util.Properties;
 
+/**
+ * DataConsumer reads and processes messages from Kafka topic
+ */
 public class DataConsumer extends ShutdownableThread {
 
     private final String topic;
@@ -35,6 +38,7 @@ public class DataConsumer extends ShutdownableThread {
         this.eventAggregator = new EventAggregator();
     }
 
+    // Sets up Kafka consumer properties
     private static Properties initProperties() {
         Properties properties = new Properties();
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KAFKA_SERVER_URL + ":" + KAFKA_SERVER_PORT);

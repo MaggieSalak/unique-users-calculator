@@ -1,7 +1,7 @@
 package com.salak.maggie;
 
 /**
- * Event represents a timestamp and uid of a message consumed from Kafka
+ * Event represents a timestamp and uid extracted from a message consumed from Kafka
  */
 public class Event {
     private long ts;
