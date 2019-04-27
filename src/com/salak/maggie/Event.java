@@ -1,12 +1,15 @@
 package com.salak.maggie;
 
+/**
+ * Event represents a timestamp and uid of a message consumed from Kafka
+ */
 public class Event {
-    private String ts;
+    private long ts;
     private String uid;
 
     public Event() { }
 
-    public String getTs() {
+    public long getTs() {
         return ts;
     }
 
@@ -14,7 +17,7 @@ public class Event {
         return uid;
     }
 
-    public void setTs(String ts) {
+    public void setTs(long ts) {
         this.ts = ts;
     }
 
