@@ -1,5 +1,6 @@
 package com.salak.maggie;
 
+import java.text.DateFormat;
 import java.util.*;
 
 /**
@@ -7,8 +8,24 @@ import java.util.*;
  * unique users (uids) per required time slot (1 min)
  */
 public class EventAggregator {
+
+    private class LastUpdatedSet {
+        Set<String> uids;
+        long lastUpdatedMillis;
+
+        LastUpdatedSet(String uid) {
+            uids = new HashSet<>(Arrays.asList(uid));
+            lastUpdatedMillis = System.currentTimeMillis();
+        }
+
+        void addUid(String uid) {
+            uids.add(uid);
+            lastUpdatedMillis = System.currentTimeMillis();
+        }
+    }
+
     // Unique users (represented as uids) per minute (represented in milliseconds)
-    private final Map<Long, Set<String>> events = new HashMap<>();
+    private final Map<Long, LastUpdatedSet> events = new HashMap<>();
 
     private static final long MAX_EVENT_AGE_MILLIS = 5000L;
     private static final long EVENT_PRINT_FREQUENCY_MILLIS = 1000L;
@@ -30,29 +47,34 @@ public class EventAggregator {
         long time = getTimeWithRoundedSeconds(event.getTs());
         synchronized (events) {
             if (events.containsKey(time)) {
-                Set<String> concurrentEvents = events.get(time);
-                concurrentEvents.add(event.getUid());
-                events.put(time, concurrentEvents);
+                LastUpdatedSet eventsSet = events.get(time);
+                eventsSet.addUid(event.getUid());
+                events.put(time, eventsSet);
             } else {
-                Set<String> concurrentEvents = new HashSet<>(Arrays.asList(event.getUid()));
-                events.put(time, concurrentEvents);
+                LastUpdatedSet eventsSet = new LastUpdatedSet(event.getUid());
+                events.put(time, eventsSet);
             }
         }
     }
 
     // Outputs number of unique users per minute;
-    // allows max latency of 5 sec before printing users for a given minute.
-    // After printing the result per minute, the entry associated with that time slot
-    // is immediately deleted as all events are expected to arrive with max latency of 5 sec.
+    // allows max latency of 5 sec  before printing users for a given minute,
+    // counting from when the last event was received for the respective time slot.
+    // After printing the result per minute, the entry associated with that time slot is deleted.
     private void printEventCountPerMinute() {
         synchronized (events) {
             long currentTimeMillis = System.currentTimeMillis();
+
             Iterator<Long> iterator = events.keySet().iterator();
             while (iterator.hasNext()) {
-                long time = iterator.next();
-                if (currentTimeMillis - time > MAX_EVENT_AGE_MILLIS) {
-                    int eventCount = events.get(time).size();
-                    System.out.println("Timestamp " + time + ": " + eventCount + " unique users");
+                long timestamp = iterator.next();
+                LastUpdatedSet eventsSet = events.get(timestamp);
+                long lastUpdatedTime = eventsSet.lastUpdatedMillis;
+
+                if (currentTimeMillis - lastUpdatedTime > MAX_EVENT_AGE_MILLIS) {
+                    int eventCount = eventsSet.uids.size();
+                    String time = DateFormat.getDateTimeInstance().format(new Date(timestamp));
+                    System.out.println(time + ": " + eventCount + " unique users");
                     iterator.remove();
                 }
             }
