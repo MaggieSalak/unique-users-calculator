@@ -1,9 +1,12 @@
 package com.salak.maggie;
 
+import com.google.gson.GsonBuilder;
 import kafka.utils.ShutdownableThread;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import com.google.gson.Gson;
 
 import java.util.Collections;
 import java.util.Properties;
@@ -11,7 +14,7 @@ import java.util.Properties;
 public class DataConsumer extends ShutdownableThread {
 
     private final String topic;
-    private final KafkaConsumer<Integer, String> consumer;
+    private final KafkaConsumer consumer;
 
     // Kafka consumer config parameters
     private static final String KAFKA_SERVER_URL = "localhost";
@@ -26,7 +29,7 @@ public class DataConsumer extends ShutdownableThread {
     public DataConsumer(String topic) {
         super("doodle-data-challenge", false);
         Properties properties = initProperties();
-        this.consumer = new KafkaConsumer<>(properties);
+        this.consumer = new KafkaConsumer(properties);
         this.topic = topic;
     }
 
@@ -46,5 +49,28 @@ public class DataConsumer extends ShutdownableThread {
     public void doWork() {
         consumer.subscribe(Collections.singletonList(this.topic));
         ConsumerRecords<Integer, String> records = consumer.poll(CONSUMER_TIMEOUT_MILLIS);
+        for (ConsumerRecord record : records) {
+            System.out.println((record.value()));
+            processMessage(record.value().toString());
+        }
+    }
+
+    private void processMessage(String message) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+        Event event = gson.fromJson(message, Event.class);
+        System.out.println(event);
+    }
+
+    @Override
+    public String name() {
+        return null;
+    }
+
+    @Override
+    public boolean isInterruptible() {
+        return false;
     }
 }
