@@ -7,8 +7,9 @@ unique-users-calculator is a standalone Java application that consumes messages 
 The solution is provided as a desktop Java application.
 The source code can be found in `src/com.salak.maggie/` directory. 
 To run the application, simply run the `main()` method in `src/com.salak.maggie/Main.java`. Results (unique user count per minute) are printed to stdout.
-All configuration needed for the Kafka consumer is already set up in the `DataConsumer.java` class. The topic name is configured in `Main.java` and is set to `data-challenge-topic`.
+All configuration needed for the Kafka consumer is already set up in the `DataConsumer.java` class. The topic name is configured in `Main.java` and is set to `unique-users-topic`.
 All libraries needed to run the application are in the `libs/` directory.
+_The producer that emits messages to the topic is not part of the application. The producer needs to be started separately, e.g. using the standard Kafka producer as described in [Kafka documentation](https://kafka.apache.org/quickstart).
 
 ## Approach
 The Kafka consumer is implemented in the `DataConsumer.java` class. Every consumed message is converted to an `Event` object that contains the timestamp and user id extracted from the message.
