@@ -31,7 +31,7 @@ public class DataConsumer extends ShutdownableThread {
     private static final int CONSUMER_TIMEOUT_MILLIS = 1000;
 
     public DataConsumer(String topic) {
-        super("doodle-data-challenge", false);
+        super("unique-visits", false);
         Properties properties = initProperties();
         this.consumer = new KafkaConsumer(properties);
         this.topic = topic;
