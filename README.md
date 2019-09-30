@@ -1,7 +1,7 @@
-# unique-visits-calculator
+# unique-users-calculator
 
 ## About
-unique-visits-calculator is a standalone Java application that consumes messages from a Kafka topic which contain information about users visiting a website at specific times. The program calculates the number of unique users that visited the website in 1 minute intervals and outputs the result.
+unique-users-calculator is a standalone Java application that consumes messages from a Kafka topic which contain information about users visiting a website at specific times. The program calculates the number of unique users that visited the website in 1 minute intervals and outputs the result.
 
 ## Setup
 The solution is provided as a desktop Java application.
